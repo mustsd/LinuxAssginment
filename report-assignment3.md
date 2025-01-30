@@ -50,3 +50,29 @@ sudo usermod -aG sudo lupu
 
 # 5. Create a directory /opt/projekti and add both users (Tupu and Lupu) as owners. Only Tupu and Lupu should have access to list files in the directory, read, and modify them.
 
+Create a directory '/opt/projekti'.
+
+```sh
+sudo mkdir /opt/projekti
+cd /opt/projekti
+```
+
+![alt text](img/3.5.1.png)
+
+Create a group 'projekti' and add both tupu and lupu to the group.
+
+```sh
+sudo groupadd projekti
+
+sudo groupmod projekti -a -U lupu,tupu
+```
+![alt text](img/3.5.2.png)
+
+![alt text](img/3.5.3.png)
+
+Then, change the directory group ownership to group 'projekti'. 
+
+```sh
+sudo chgrp projekti projekti/
+```
+![alt text](img/3.5.4.png)
