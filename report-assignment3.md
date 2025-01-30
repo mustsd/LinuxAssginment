@@ -76,3 +76,11 @@ Then, change the directory group ownership to group 'projekti'.
 sudo chgrp projekti projekti/
 ```
 ![alt text](img/3.5.4.png)
+
+Finally, add setgid bit on the directory.
+
+```sh
+sudo chmod g+s projekti/
+```
+
+![alt text](image.png)
