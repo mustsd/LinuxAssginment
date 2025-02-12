@@ -83,4 +83,4 @@ Finally, add setgid bit on the directory.
 sudo chmod g+s projekti/
 ```
 
-![alt text](image.png)
+![alt text](img/3.5.5.png)
