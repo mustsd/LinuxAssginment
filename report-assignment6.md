@@ -163,10 +163,28 @@ Hit:5 https://packages.microsoft.com/repos/microsoft-ubuntu-noble-prod noble InR
 
 ### 15. Simulate an installation failure and troubleshoot:
 
-![alt text](image-1.png)
+![alt text](img/6.1.15.png)
 
 #### What error message do you get?
 
 Error message is "E: Unable to locate package fakepackage".
 
 #### How would you troubleshoot this issue?
+
+We can use command 'apt list --installed | grep fakepackage' to find out if the package is intstalled before installing packages. 
+
+
+
+### Bonus Challenge (Optional)
+
+'sudo apt-mark hold '
+
+'sudo apt-mark unhold '
+
+![alt text](img/6.1.16.png)
+
+#### Why would you want to hold a package?
+
+1. For stability. The current version works perfectly for your needs, and you want to avoid potential breaking changes from updates.
+
+2. For compatibility. Your software depends on a specific version of the package, and upgrading might break functionality.
