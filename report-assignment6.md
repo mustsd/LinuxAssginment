@@ -177,9 +177,9 @@ We can use command 'apt list --installed | grep fakepackage' to find out if the 
 
 ### Bonus Challenge (Optional)
 
-'sudo apt-mark hold '
+'sudo apt-mark hold vim'
 
-'sudo apt-mark unhold '
+'sudo apt-mark unhold vim'
 
 ![alt text](img/6.1.16.png)
 
