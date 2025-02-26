@@ -1,4 +1,4 @@
-# 2025-02-06
+# 2025-02-20
 **Assignment 6**
 
 Sidong Liu
@@ -160,3 +160,103 @@ touch shared-folder/test.txt
 
 ## Part 3: Exploring LXD 
 
+update your system by using apt: `apt update && apt upgrade -y`
+
+Install Snap: `sudo apt install snap -y`
+
+install lxd using snap: `sudo snap install lxd`
+
+check that your user belongs to LXD group: id, and look for LXD. If you do not find lxd group, add user to it: `sudo usermod -aG lxd $USER`
+
+initialize xld, to configure system to your environment: `lxd init`. 
+
+
+```
+
+$ lxc launch ubuntu:24.04 demo-container
+
+$ lxc exec demo-container -- bash
+
+```
+
+![alt text](img/7.16.png)
+
+
+
+### Part 4: How to Stick Apps with Docker
+
+**What is Docker?**
+
+Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. 
+
+
+#### Installation
+
+```sh
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+```
+
+
+#### Docker Workshop
+
+**Get the app**
+
+`git clone https://github.com/docker/getting-started-app.git`
+
+**Build the app's image**
+
+Create Dockerfile: 
+
+![alt text](img/7.17.png)
+
+
+```sh
+docker build -t getting-started .
+```
+
+![alt text](img/7.18.png)
+
+![alt text](img/7.19.png)
+
+
+**Start an app container**
+
+```sh
+
+docker run -d -p 127.0.0.1:3000:3000 getting-started
+```
+
+
+![alt text](img/7.20.png)
+
+
+### Part 5: Snaps for Self-Contained Applications 
+
+
+**Getting network errors**
+
+![alt text](img/7.21.png)
+
+
+Go to the link according the message: 
+https://canonical-craft-providers.readthedocs-hosted.com/en/latest/explanation/
+
+I noticed the following message should be the problem I encountered. Go to the link and the easiest way to prevent such issues is to uninstall Docker from the system that runs LXD and restart the system. 
+
+![alt text](img/7.22.png)
+
+After restarting, the command runs successfully.
+
+![alt text](img/7.23.png)
+
+
+![alt text](img/7.24.png)
+
+![alt text](img/7.25.png)
